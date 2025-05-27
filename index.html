@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplication Table Generator</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        input, button { padding: 10px; font-size: 16px; }
+        #result, #test-output { margin-top: 20px; font-weight: bold; }
+        #test-output { color: blue; }
+    </style>
+</head>
+<body>
+
+    <h1>Multiplication Table Generator</h1>
+    <input type="text" id="number" placeholder="Enter a number">
+    <button onclick="generateTable()">Generate</button>
+
+    <div id="result"></div>
+
+    <h2>Run Test</h2>
+    <button onclick="runTest()">Run Test</button>
+    <div id="test-output"></div>
+
+    <script>
+        function generateTable() {
+            const num = document.getElementById("number").value;
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "";
+
+            if (!num || isNaN(num)) {
+                resultDiv.innerHTML = "Please enter a valid number.";
+                return;
+            }
+
+            for (let i = 1; i <= 10; i++) {
+                resultDiv.innerHTML += `${num} x ${i} = ${num * i}<br>`;
+            }
+        }
+
+        function runTest() {
+            document.getElementById("number").value = "5";
+            generateTable();
+
+            const resultText = document.getElementById("result").innerText;
+            const testOutput = document.getElementById("test-output");
+
+            if (resultText.includes("5 x 10 = 50")) {
+                testOutput.innerHTML = "✅ Test Passed!";
+            } else {
+                testOutput.innerHTML = "❌ Test Failed!";
+            }
+        }
+    </script>
+
+</body>
+</html>
