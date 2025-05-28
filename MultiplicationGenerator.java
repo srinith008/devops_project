@@ -1,6 +1,6 @@
 public class MultiplicationGenerator {
     public static void main(String[] args) {
-        if (args.length != 1) {
+        if (args.length < 1) {
             System.out.println("Usage: java MultiplicationGenerator <number>");
             return;
         }
@@ -12,7 +12,7 @@ public class MultiplicationGenerator {
                 System.out.println(number + " x " + i + " = " + (number * i));
             }
         } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter a valid integer.");
+            System.out.println("Invalid number format.");
         }
     }
 }
