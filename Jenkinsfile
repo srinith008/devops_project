@@ -4,15 +4,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/srinith008/devops_project.git'
+                git branch: 'main', url: 'https://github.com/srinith008/devops_project.git'
             }
         }
 
         stage('Start Local Server') {
             steps {
-                script {
-                    bat 'python -m http.server 8080'
-                }
+                echo '🎉 Local server started (example step)...'
+                // Add your actual HTML/JS server logic here
             }
         }
     }
